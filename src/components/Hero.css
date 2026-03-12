@@ -1,0 +1,207 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+/* Animated gradient background */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg .glow-orb:nth-child(1) {
+    width: 600px;
+    height: 600px;
+    background: var(--accent-1);
+    top: -10%;
+    right: -5%;
+    animation: pulse-glow 8s ease-in-out infinite;
+}
+
+.hero-bg .glow-orb:nth-child(2) {
+    width: 500px;
+    height: 500px;
+    background: var(--accent-3);
+    bottom: -15%;
+    left: -10%;
+    animation: pulse-glow 10s ease-in-out infinite 2s;
+}
+
+.hero-bg .glow-orb:nth-child(3) {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-4);
+    top: 40%;
+    left: 50%;
+    animation: pulse-glow 6s ease-in-out infinite 4s;
+}
+
+/* Grid pattern overlay */
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--accent-1);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 28px;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.hero-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34d399;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 900;
+    line-height: 1.08;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+    animation: fadeInUp 0.7s ease 0.15s both;
+}
+
+.hero h1 .gradient-text {
+    background: var(--gradient-primary);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 6s ease-in-out infinite;
+}
+
+.hero-description {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 40px;
+    max-width: 600px;
+    animation: fadeInUp 0.7s ease 0.3s both;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.7s ease 0.45s both;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    background: var(--gradient-subtle);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 25px rgba(108, 99, 255, 0.35);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 35px rgba(108, 99, 255, 0.5);
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    background: var(--glass-bg);
+    border-color: var(--accent-1);
+    transform: translateY(-3px);
+}
+
+/* Scroll indicator */
+.hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+}
+
+.scroll-indicator {
+    width: 28px;
+    height: 44px;
+    border: 2px solid var(--glass-border);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.scroll-dot {
+    width: 4px;
+    height: 10px;
+    background: var(--accent-1);
+    border-radius: 2px;
+    animation: float 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 100px;
+        min-height: auto;
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+}

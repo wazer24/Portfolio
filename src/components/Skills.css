@@ -1,0 +1,110 @@
+.skills {
+    position: relative;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    position: relative;
+    padding: 32px 20px;
+    border-radius: var(--border-radius);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    cursor: default;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius);
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: var(--transition-smooth);
+    z-index: 0;
+}
+
+.skill-card:hover::before {
+    opacity: 0.06;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(108, 99, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 60px rgba(108, 99, 255, 0.1);
+}
+
+.skill-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    margin-bottom: 14px;
+    display: block;
+    transition: var(--transition-spring);
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.15);
+}
+
+.skill-name {
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.skill-level {
+    position: relative;
+    z-index: 1;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Progress bar under each card */
+.skill-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    transition: var(--transition-smooth);
+}
+
+.skill-card:hover .skill-bar {
+    height: 4px;
+    box-shadow: 0 0 15px rgba(108, 99, 255, 0.5);
+}
+
+/* Glow */
+.skills .glow-orb {
+    width: 500px;
+    height: 500px;
+    background: var(--accent-3);
+    top: 20%;
+    right: -10%;
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .skill-card {
+        padding: 24px 14px;
+    }
+}
